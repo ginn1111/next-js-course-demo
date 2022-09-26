@@ -7,7 +7,7 @@ const NewMeetup = () => {
   const router = useRouter();
 
   const addMeetupHandler = useCallback(async (meetupData) => {
-    const response = await fetch('/api/new-meetup', {
+    await fetch('/api/new-meetup', {
       method: 'POST',
       body: JSON.stringify(meetupData),
       headers: {
@@ -22,6 +22,7 @@ const NewMeetup = () => {
       <Head>
         <meta name="description" content="Add new meetup" />
         <title>New Meetup</title>
+        <NewMeetupForm onAddMeetup={addMeetupHandler} />
       </Head>
     </>
   );
